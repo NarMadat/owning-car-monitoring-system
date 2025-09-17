@@ -16,7 +16,7 @@ export class NotificationService {
     private readonly statisticsService: StatisticsService,
   ) {}
 
-  @Cron('0 9,15,20 * * *')
+  @Cron('0 9,15 * * *')
   async handleMorningNotification() {
     const message = await this.telegramService.getStatsMessage();
     await this.telegramService.sendMessage(message);
@@ -34,7 +34,7 @@ export class NotificationService {
     if (newOnes.length > 0) {
       for (const tx of newOnes) {
         await this.telegramService.sendMessage(
-          `✅ New completed transaction: #${tx.id}\n📊 Total transactions: ${stats.completed}`
+          `✅ New completed transaction: ${tx.id}\n📊 Total transactions: ${stats.completed}`
         );
       }
       this.lastCompletedIds = new Set(completed.map(t => t.id));

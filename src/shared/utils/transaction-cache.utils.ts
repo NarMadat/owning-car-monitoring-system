@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs';
 import * as path from 'path';
 
-const CACHE_PATH = path.resolve(__dirname, '../../../../transaction-cache.json');
+const CACHE_PATH = path.resolve(__dirname, '../../../transaction-cache.json');
 
 export async function readCompletedIds(): Promise<Set<string>> {
   try {
