@@ -5,6 +5,8 @@ import { TelegramService } from './services/telegram.service';
 import { TelegramUpdate } from './telegram.update';
 import { StatisticsModule } from '../statistics/statistics.module';
 import { NotificationService } from './services/notifications.service';
+import { TransactionsService } from '../transactions/services/transactions.service';
+import { TransactionsModule } from '../transactions/transactions.module';
 
 @Module({
   imports: [
@@ -19,6 +21,7 @@ import { NotificationService } from './services/notifications.service';
       },
     }),
     StatisticsModule,
+    TransactionsModule
   ],
   providers: [TelegramService, TelegramUpdate, NotificationService],
   exports: [TelegramService],
